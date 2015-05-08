@@ -32,10 +32,12 @@ df$Global_active_power <- as.numeric(as.character(df$Global_active_power))
 
 # Plotting and saving -----------------------------------------------------
 # Plot 3
+par(mfrow=c(1,1))
 
 plot(df$datetime,df$Sub_metering_1, type='l', col="black", ylab="Energy sub metering", xlab="")
 lines(df$datetime,df$Sub_metering_2, type='l', col="red", ylab="Energy sub metering", xlab="")
 lines(df$datetime,df$Sub_metering_3, type='l', col="blue", ylab="Energy sub metering", xlab="")
+legend("topright", pch='-', lwd=1.5,col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), cex=0.8)
 # saving
 dev.copy(png,'./plot3.png')
 dev.off()
